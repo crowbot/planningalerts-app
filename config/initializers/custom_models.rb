@@ -6,7 +6,7 @@ $app_route_extensions = []
 if (ENV["ENABLE_THEME"] or ENV["RAILS_ENV"] != "test") and File.exists?(File.expand_path("../../general.yml", __FILE__)) and File.exists?(File.expand_path("../../test.yml", __FILE__))
   #force load the configuration file and the overrides
   require File.expand_path "../../../app/models/configuration.rb", __FILE__
-  require File.expand_path "../../../lib/themes/hampshire/configuration.rb", __FILE__
+  require File.expand_path "../../../lib/themes/southwark/configuration.rb", __FILE__
 end
 
 # load theme customisations if there is CUSTOM_MODELS_PATH is set

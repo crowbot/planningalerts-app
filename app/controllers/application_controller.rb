@@ -33,6 +33,13 @@ class ApplicationController < ActionController::Base
         load file
       end
     end
+    if @theme == 'southwark'
+      self.prepend_view_path "lib/themes/southwark/views"
+      controller_path = '/../../lib/themes/southwark/controllers/*_controller.rb'
+      Dir[File.dirname(__FILE__) + controller_path].each do |file|
+        load file
+      end
+    end
   end
 
 end

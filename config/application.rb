@@ -21,7 +21,7 @@ module PlanningalertsApp
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths << "#{config.root}/app/sweepers"
     config.autoload_paths << "#{config.root}/lib"
-    config.autoload_paths << "#{config.root}/lib/themes/hampshire/lib"
+    config.autoload_paths << "#{config.root}/lib/themes/southwark/lib"
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -73,14 +73,14 @@ module PlanningalertsApp
     # TODO Generalise this
     config.assets.paths << "#{Rails.root}/lib/themes/nsw/assets/stylesheets"
     config.assets.paths << "#{Rails.root}/lib/themes/nsw/assets/images"
-    config.assets.paths << "#{Rails.root}/lib/themes/hampshire/assets/javascripts"
-    config.assets.paths << "#{Rails.root}/lib/themes/hampshire/assets/images"
-    config.assets.paths << "#{Rails.root}/lib/themes/hampshire/assets/stylesheets"
+    config.assets.paths << "#{Rails.root}/lib/themes/southwark/assets/javascripts"
+    config.assets.paths << "#{Rails.root}/lib/themes/southwark/assets/images"
+    config.assets.paths << "#{Rails.root}/lib/themes/southwark/assets/stylesheets"
 
-    hampshire_path = "/../lib/themes/hampshire/assets"
-    hampshire_files = Dir[File.dirname(__FILE__) + "#{hampshire_path}/javascripts/*"]
+    southwark_path = "/../lib/themes/southwark/assets"
+    southwark_files = Dir[File.dirname(__FILE__) + "#{southwark_path}/javascripts/*"]
 
-    config.assets.precompile += hampshire_files.map{ |x| x.split("/").last }
+    config.assets.precompile += southwark_files.map{ |x| x.split("/").last }
     config.assets.precompile << "application.scss"
 
     # Application configuration
