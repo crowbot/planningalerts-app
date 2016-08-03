@@ -1,0 +1,49 @@
+body {
+  // Give the body the same background colour as the footer,
+  // so the footer looks like it fills the window on short pages.
+  background-color: $color-southwark-skyblue;
+}
+
+#main-wrapper {
+  // And give the main content area a white background,
+  // so the body background doesn't show through.
+  background-color: #fff;
+}
+
+#footer-wrapper {
+  background-color: $color-southwark-skyblue;
+  border-top: 1px solid mix($color-southwark-gunmetal, $color-southwark-skyblue, 10%);
+}
+
+#footer {
+  h3 {
+    width: 160px;
+    height: 69px;
+    margin: -10px 0 5px -25px;
+    text-indent: -9000px;
+    background: transparent url(../logo-blue.png) 0 50% no-repeat;
+    // IE8 doesn't understand multiple background images, so ignores this line:
+    background-image: url(../logo-blue.svg), none;
+  }
+
+  p {
+    color: $color-southwark-frost;
+
+    a, a:link, a:visited {
+      color: $color-southwark-frost;
+      text-decoration: underline;
+    }
+
+    a:hover, a:focus {
+      color: mix($color-southwark-royalblue, $color-southwark-frost, 50%);
+    }
+  }
+
+  .oaf {
+    p {
+      margin: 0;
+      color: mix($color-southwark-frost, $color-southwark-skyblue, 50%);
+    }
+  }
+}
+

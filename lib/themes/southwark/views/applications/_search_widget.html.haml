@@ -1,0 +1,26 @@
+%form.container.address-search{'accept-charset' => "UTF-8", 'action' => search_applications_path, 'method' => "get"}
+  %fieldset
+    = hidden_field_tag(:results, true)
+    - unless @display.blank?
+      = hidden_field_tag(:display, @display)
+    %p#t_input
+      = label_tag(:status, "Show")
+      = select_tag(:status, options_for_select(["all", "approved", "refused", "pending"], (params[:status] or "all")))
+      = label_tag(:status, "applications")
+    %p#s_input
+      = label_tag(:search, "For")
+      = text_field_tag(:search, (params[:search] or "anything"), :placeholder => "conservatories")
+    %p#q_input{:class => ("error" if @search and @search.invalid?)}
+      = label_tag(:location, "Near")
+      = text_field_tag(:location, params[:location], placeholder: "postcode")
+    %p.submit
+      %button.button.button-rounded.button-large.button-action{:type => "submit"}
+        %i.fa.fa-search
+        Search again
+
+  - if @search and @search.invalid?
+    #errors
+      %p
+        Hmm, it looks like something's wrong.
+      - @search.errors.each do |attr, error|
+        %p= error

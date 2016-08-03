@@ -1,0 +1,577 @@
+$color-sidebar-border: mix(#999, $color-southwark-skyblue, 50%);
+
+body.search-results {
+  .main {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #content {
+    padding: 0;
+  }
+
+  &.fullscreen-map {
+    height: 100%;
+
+    #content, #map {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      // top is set dynamically by javascript
+    }
+
+    #footer-wrapper, #list {
+      display: none;
+    }
+  }
+
+  .no-results {
+    padding-top: 2em;
+  }
+
+  @media screen and (min-width: 60em) {
+    #results {
+      min-height: 500px;
+      position: relative; // So we can absolutely position sidebar
+    }
+  }
+
+  #errors {
+    margin-top: 1em;
+    font-size: 1.2em;
+    padding: 1em 2em;
+    background: mix(#fff, $color-southwark-red, 60%);
+    p {
+      display: block;
+      margin-left: 0;
+    }
+  }
+}
+
+#searchbar {
+  background-color: $color-southwark-skyblue;
+  border-bottom: 1px solid darken($color-sidebar-border, 10%);
+
+  // Hide on narrow screens, then reveal with javascript
+  @media screen and (max-width: 59.99em) {
+    display: none;
+
+    &.shown {
+      display: block;
+    }
+  }
+
+  form {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    // Don't touch side padding, because .container will sort that out for us
+
+    p.submit {
+      margin-bottom: 0;
+    }
+
+    label {
+      margin-right: 0.5em;
+      line-height: 2em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @media screen and (min-width: 60em) {
+      p {
+        display: inline;
+        margin: 0;
+
+        & + p {
+          margin-left: 0.5em;
+        }
+      }
+
+      // Special case for "applications...for" which spans two paragraphs
+      #s_input {
+        margin-left: 0;
+      }
+
+      #s_input label, #q_input label {
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  #status, #search, #location, #full_name {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.4em 0.6em;
+    width: 9em;
+    font-size: 1em; // 16px
+    line-height: normal;
+    font-family: inherit;
+    color: inherit;
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-color: #fff;
+    -wekbit-appearance: none;
+
+    &:focus {
+      outline: none;
+      border-color: $color-select2-focus;
+    }
+  }
+
+  #status,
+  #full_name {
+    height: 2em; // rough height, for when javascript select2 is disabled
+  }
+
+  #status {
+    width: 6em;
+
+    & + label {
+      margin-left: 0.7em;
+    }
+  }
+
+  #full_name,
+  #s2id_full_name {
+    // Council names are long, so
+    // give them as much space as possible...
+    width: 100% !important;
+    // ...Up to a sensible point
+    max-width: 25em;
+  }
+
+  .select2-container {
+    text-align: left;
+    vertical-align: top;
+
+    .select2-choice {
+      padding: 0.4em 0.6em;
+      line-height: normal;
+      height: auto;
+      border-radius: 0;
+      border: 1px solid #bbb;
+      background: #fff;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+      .select2-arrow {
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        right: 2px;
+
+        b {
+          background-position: 0 3px;
+        }
+      }
+    }
+  }
+
+  .select2-dropdown-open .select2-choice .select2-arrow b {
+    background-position: -18px 3px;
+  }
+
+  .select2-container-active .select2-choice {
+    border-color: $color-select2-focus;
+  }
+}
+
+#sidebar {
+  background: $color-southwark-skyblue;
+  border-bottom: 1px solid darken($color-sidebar-border, 10%);
+  margin: 0 -1.4em; // overlap parent .container padding
+  padding: 1.4em; // line content back up with parent .container content
+
+  display: block; // override default inline-block (!?)
+  float: none; // override default float
+  width: auto; // override default 23.22635%
+
+  @media screen and (min-width: 60em) {
+    position: absolute;
+    top: 2em;
+    z-index: 2;
+    margin: 0;
+    padding: 1em;
+    box-sizing: border-box; // so padding doesn't mess up column percentages
+    width: 28%;
+    border: 1px solid darken($color-sidebar-border, 10%);
+  }
+
+  h2 {
+    font-size: 1.3em;
+    line-height: 1.2em;
+  }
+
+  p {
+    margin-bottom: 0.75em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .parent-council-link {
+    display: block; // break onto new line
+  }
+
+  .change-display {
+    display: none;
+  }
+
+  .mobile-shortcuts {
+    display: block;
+
+    a {
+      margin-left: 1em;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:before {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-right: 0.4em;
+      }
+
+      &.list-view:before {
+        content: $fa-var-list-ul;
+      }
+
+      &.map-view:before {
+        content: $fa-var-map-marker;
+      }
+
+      &.modify-search:before {
+        content: $fa-var-pencil;
+      }
+
+      &.all-authorities:before {
+        content: $fa-var-arrow-left;
+      }
+    }
+  }
+
+  @media screen and (min-width: 60em) {
+    .change-display {
+      display: block;
+    }
+
+    .mobile-shortcuts {
+      display: none;
+    }
+  }
+}
+
+#sidebar-stats {
+  // Hide by default
+  display: none;
+
+  @media screen and (min-width: 60em) {
+    // Show on wide screens
+    display: block;
+  }
+
+  background: #fff;
+  border-top: 1px solid $color-sidebar-border;
+  border-bottom: 1px solid $color-sidebar-border;
+  margin: 1em -1em;
+  padding: 1em;
+
+  p {
+    position: relative;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
+
+  .visualisation {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 7em;
+  }
+
+  .bar {
+    display: block;
+    height: 1.6em;
+    // Width is set inline, as a percentage of parent.
+    // But we set a minimum, so the bar label is visible.
+    min-width: 3em;
+    box-sizing: border-box; // so padding doesn't mess up percentage width
+    background-color: #999;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+  }
+
+  .approved .bar {
+    background-color: $color-southwark-green;
+  }
+
+  .refused .bar {
+    background-color: $color-southwark-red;
+  }
+
+  .pending .bar {
+    background-color: $color-southwark-gunmetal;
+  }
+
+  .notes {
+    display: block;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: #859196;
+  }
+}
+
+#sidebar-context {
+  margin-bottom: 0.75em;
+
+  @media screen and (min-width: 60em) {
+    background: #fff;
+    border-top: 1px solid $color-sidebar-border;
+    border-bottom: 1px solid $color-sidebar-border;
+    margin: 1em -1em;
+    padding: 1em;
+
+    #sidebar-stats + & {
+      margin-top: -1em;
+      border-top: none;
+    }
+  }
+}
+
+#list {
+  @media screen and (min-width: 60em) {
+    padding-left: 32%; // 28% for sidebar, plus 4% padding
+  }
+
+  .pagination:first-child {
+    display: none;
+  }
+}
+
+.applications li {
+  border-bottom: none;
+  padding: 2em 0 0 0;
+}
+
+.application {
+  a:link {
+    text-decoration: none;
+    color: $color-southwark-navyblue;
+  }
+
+  .reference {
+    color: $color-southwark-gunmetal;
+    margin-bottom: 0.5em;
+  }
+
+  .address {
+    color: inherit;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .description {
+    color: inherit;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  a:hover .address {
+    color: $color-southwark-royalblue;
+  }
+
+  .metadata {
+    color: inherit;
+    font-size: 0.9em;
+    line-height: 1em;
+
+    dt, dd {
+      display: inline;
+    }
+
+    dt {
+      margin: 0 0.2em 0 1.5em;
+    }
+
+    // Hide search result dates on narrow screens
+    @media screen and (max-width: 39.99em) {
+      .received, .decision {
+        display: none;
+      }
+    }
+  }
+
+  dt.status {
+    display: none;
+  }
+
+  dd.status {
+    background-color: $color-southwark-gunmetal;
+    border-radius: 0.2em;
+    padding: 0.2em 0.4em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+
+    &.approved {
+      background-color: $color-southwark-green;
+    }
+
+    &.refused {
+      background-color: $color-southwark-red;
+    }
+
+    &.pending {
+      background-color: $color-southwark-gunmetal;
+    }
+  }
+}
+
+.pagination {
+  padding: 2em 0;
+  text-align: left;
+  display: table;
+
+  & > * {
+    padding: 0.5em 1em;
+    display: table-cell;
+    border: 1px solid $color-southwark-skyblue;
+    border-left-style: none;
+  }
+
+  & > :first-child {
+    border-left-style: solid;
+    @include border-left-radius(0.2em);
+  }
+
+  & > :last-child {
+    @include border-right-radius(0.2em);
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  .current {
+    font-style: normal;
+    background-color: $color-southwark-skyblue;
+    color: $color-southwark-navyblue;
+  }
+
+  .disabled {
+    color: darken($color-southwark-skyblue, 20%);
+  }
+
+  @media only screen and (max-width: 44.99em){
+    & > * {
+      display: none;
+    }
+
+    .previous_page, .next_page, .current {
+      display: table-cell;
+    }
+
+    .current {
+      background-color: transparent;
+    }
+  }
+}
+
+// Override inline styles on the Google Maps InfoWindow containers
+div.gm-style-iw {
+  width: 290px !important; // 260px + 15px padding on either side
+  left: 0 !important; // remove 15px indent
+
+  & > div {
+    width: 290px !important; // 260px + 15px padding on either side
+  }
+}
+
+.infowindow {
+  // Override default Google Maps InfoWindow text styling
+  font-family: $helvetica;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-weight: normal;
+
+  color: $color-southwark-navyblue;
+  padding: 10px 20px 20px 20px;
+
+  .reference {
+    color: $color-southwark-gunmetal;
+    margin-bottom: 0.5em;
+  }
+
+  .address {
+    color: inherit;
+    font-size: 1.3em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .description {
+    color: inherit;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  dl {
+    font-size: 0.9em;
+    padding: 1em 20px;
+    margin: 1em -19px 1.2em -19px;
+    background: lighten($color-southwark-skyblue, 5%);
+    border: 1px solid darken($color-southwark-skyblue, 5%);
+    border-left: none;
+    border-right: none;
+  }
+
+  dt {
+    float: left;
+    width: 7em;
+    color: darken($color-southwark-gunmetal, 10%);
+    margin: 0;
+    text-align: right;
+  }
+
+  dd {
+    margin-left: 8em;
+    color: $color-southwark-navyblue;
+    margin-bottom: 0.4em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .submit {
+    text-align: center;
+    margin: 0;
+  }
+
+  .button-action .fa {
+    margin-left: 0.2em;
+  }
+
+}

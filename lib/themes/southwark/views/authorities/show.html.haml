@@ -1,0 +1,24 @@
+- content_for :page_title, @authority.full_name
+= content_for :extra_body_classes, "search-results"
+= content_for :extra_javascript, javascript_include_tag("southwark.search_box")
+
+#searchbar
+  %form#switch-authority.container
+    %fieldset
+      %label{:for => 'full_name'} Showing all applications for
+      = select_tag(:full_name,
+                   options_from_collection_for_select(@authorities,
+                                                      :short_name_encoded,
+                                                      :full_name,
+                                                      @authority.short_name_encoded))
+      %button.button.button-rounded.button-large.button-action{:type => "submit"} Switch authority
+
+#results.container
+  = render "sidebar"
+  #list{:class => 'results-display'}
+    - if @applications.count == 0
+      %p.no-results
+        Sorry, no applications for #{@authority.full_name} have been collected yet.
+    - else
+      = paginated_section @applications, :previous_label => "« Newer", :next_label => "Older »", :inner_window => 1 do
+        = render "applications/applications", :applications => @applications

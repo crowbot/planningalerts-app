@@ -1,0 +1,225 @@
+$color-select2-focus: #5897fb;
+
+body.initial-search {
+  #main-wrapper {
+    background: #ccd5d7 url(../homepage-background.jpg) 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  #content {
+    // Don't need padding here, we use margin on #home-search instead
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #footer-wrapper {
+    border-top-color: #B1C3C7; // darker than normal, better contrast with map image
+  }
+}
+
+#home-search {
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 2em 0;
+
+  @media screen and (min-width: 30em) {
+    margin: 4em 0;
+  }
+
+  @media screen and (min-width: 45em) {
+    margin: 6em 0;
+  }
+
+  @media screen and (min-width: 45em) and (min-height: 48em) { // 768px high window
+    margin: 8em 0;
+  }
+
+  @media screen and (min-width: 45em) and (min-height: 50em) { // 800px high window
+    margin: 8em 0 10em 0;
+  }
+
+  @media screen and (min-width: 45em) and (min-height: 54em) { // 864px high window
+    margin: 8em 0 14em 0;
+  }
+
+  header {
+    background-color: $color-southwark-navyblue;
+    color: #fff;
+    padding: 1em;
+    @include border-top-radius(5px);
+
+    @media screen and (min-width: 30em) {
+      padding: 1.5em;
+    }
+
+    @media screen and (min-width: 45em) {
+      padding: 2em;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    color: inherit;
+    font-size: 1.4em;
+    line-height: 1.2em;
+
+    @media screen and (min-width: 30em) {
+      font-size: 1.8em;
+    }
+
+    @media screen and (min-width: 45em) {
+      font-size: 2.2em;
+    }
+
+    small {
+      font-size: 1em;
+      display: block;
+      opacity: 0.7;
+    }
+  }
+
+  #errors {
+    margin-bottom: 0;
+    font-size: 1.2em;
+    padding: 1em 2em;
+    background: mix(#fff, $color-southwark-red, 60%);
+  }
+
+  fieldset {
+    padding: 1em;
+
+    @media screen and (min-width: 30em) {
+      padding: 1.5em;
+    }
+
+    @media screen and (min-width: 45em) {
+      padding: 2em;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-bottom: 1em;
+    }
+
+    p.submit {
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+
+      @media screen and (min-width: 38em) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    @media screen and (min-width: 38em) {
+      label {
+        display: inline;
+        margin-right: 0.5em;
+        line-height: 1.9em;
+        vertical-align: top;
+      }
+    }
+
+    @media screen and (min-width: 60em) {
+      p {
+        display: inline;
+        margin: 0;
+      }
+
+      p + p {
+        margin-left: 0.5em;
+      }
+    }
+  }
+
+  .select2-container {
+    text-align: left;
+    font-size: 0.9em;
+    vertical-align: top;
+
+    .select2-choice {
+      padding: 0.4em 0.6em;
+      line-height: normal;
+      height: auto;
+      border-radius: 0;
+      border: 1px solid #bbb;
+      background: #fff;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+      .select2-arrow {
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        right: 2px;
+
+        b {
+          background-position: 0 6px;
+        }
+      }
+    }
+  }
+
+  .select2-dropdown-open .select2-choice .select2-arrow b {
+    background-position: -18px 6px;
+  }
+
+  .select2-container-active .select2-choice {
+    border-color: $color-select2-focus;
+  }
+
+  #q_input label {
+    text-transform: lowercase;
+  }
+
+  #search, #location {
+    display: inline-block;
+    padding: 0.4em 0.6em;
+    width: 9em;
+    font-size: 0.9em;
+    line-height: normal;
+    font-family: inherit;
+    color: inherit;
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-color: #fff;
+    -wekbit-appearance: none;
+
+    &:focus {
+      outline: none;
+      border-color: $color-select2-focus;
+    }
+  }
+
+  .button-action {
+    font-size: 18px; // rather than the default 1em for .button-action
+  }
+
+  .error {
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    label {
+      color: mix(#333, $color-southwark-red, 50%);
+    }
+
+    #search, #location {
+      border-color: mix(#bbb, $color-southwark-red, 50%);
+      background-color: mix(#fff, $color-southwark-red, 90%);
+    }
+  }
+
+  #suggested-searches {
+      margin-top: 2em;
+
+      a:link {
+          text-decoration: none;
+      }
+  }
+}

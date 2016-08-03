@@ -1,0 +1,69 @@
+.authorities {
+  td {
+    padding: 0;
+  }
+
+  .name {
+    font-size: 1.2em;
+  }
+
+  a:link {
+    display: block;
+    text-decoration: none;
+    padding: 10px 15px;
+  }
+
+  tr {
+    background-color: mix(#fff, $color-southwark-skyblue, 50%);
+
+    &:hover {
+      background-color: mix(#fff, $color-southwark-skyblue, 10%);
+
+      a {
+        text-decoration: underline;
+        color: $color-southwark-royalblue;
+      }
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: #fff;
+
+    &:hover {
+      background-color: mix(#fff, $color-southwark-skyblue, 90%);
+    }
+  }
+
+  .name a,
+  .total_applications a {
+    color: $color-southwark-navyblue;
+  }
+
+  .percent_approved a,
+  .percent_delayed a {
+    color: mix($color-southwark-gunmetal, $color-southwark-frost, 50%);
+  }
+
+  // Progressively disclose stats
+  // as window gets wider
+
+  .total_applications,
+  .percent_approved,
+  .percent_delayed {
+    display: none;
+  }
+
+  @include at-breakpoint(30em) {
+    .total_applications {
+      display: table-cell;
+    }
+  }
+
+  @include at-breakpoint(45em) {
+    .percent_approved,
+    .percent_delayed {
+      display: table-cell;
+    }
+  }
+
+}

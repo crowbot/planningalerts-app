@@ -1,0 +1,63 @@
+= content_for :page_title do
+  - if @show_results
+    - if params[:location]
+      Search results for "#{params[:search]}" around #{params[:location]}
+    - else
+      Search results for "#{params[:search]}"
+
+
+= content_for :extra_javascript do
+  -# This has to be present in either view and come before the other js that
+  -# might be loaded if we're showing results, hence it comes at the top
+  %script
+    PlanningAlerts['search'] = {};
+    - if @applications_json
+      PlanningAlerts.search['applications'] = #{raw @applications_json};
+    - else
+      PlanningAlerts.search['applications'] = [];
+    - if @search and @search.is_location_search?
+      PlanningAlerts.search['lat'] = #{@search.lat};
+      PlanningAlerts.search['lng'] = #{@search.lng};
+      PlanningAlerts.search['return_params'] = #{raw @return_to_search_params.to_json};
+    PlanningAlerts.search['categories'] = #{raw @categories_json};
+
+= content_for :extra_javascript, javascript_include_tag("southwark.search_box")
+
+- if @show_results
+  = content_for :extra_body_classes, "search-results"
+
+  #searchbar
+    = render "search_widget"
+
+  #results.container
+    - if @search.valid?
+      = render "sidebar"
+
+      - if @display == "map"
+        %noscript
+          #list{:class => 'results-display'}
+            - if @applications and @applications.total_entries > 0
+              = paginated_section @applications, :previous_label => "« Newer", :next_label => "Older »", :inner_window => 1 do
+                = render "applications", :applications => @applications
+            - else
+              %p.no-results
+                Sorry, no results matched that search, perhaps try again with less specific keywords, or in a different location?
+      - else
+        #list{:class => 'results-display'}
+          - if @applications and @applications.total_entries > 0
+            = paginated_section @applications, :previous_label => "« Newer", :next_label => "Older »", :inner_window => 1 do
+              = render "applications", :applications => @applications
+          - else
+            %p.no-results
+              Sorry, no results matched that search, perhaps try again with less specific keywords, or in a different location?
+
+  - if @display == "map"
+    #map{:class => 'results-display'}
+
+  = content_for :extra_javascript do
+    = render "js_marker_template"
+  = content_for :extra_javascript, javascript_include_tag("southwark.map_styles")
+  = content_for :extra_javascript, javascript_include_tag("southwark.search_map")
+- else
+  = content_for :extra_body_classes, "initial-search"
+  = render "initial_search_form"

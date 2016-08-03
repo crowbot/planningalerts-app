@@ -1,0 +1,79 @@
+$header-height: 50px;
+
+#header-wrapper {
+  color: #fff;
+  background: $color-southwark-navyblue;
+}
+
+#header {
+  @extend .container;
+  z-index: 10;
+  background-color: inherit; // for when unfolded nav hoverhangs absolutely positioned elements on map page
+
+  h1 {
+    padding-top: 0;
+
+    a {
+      float: left;
+      display: block;
+      width: 160px;
+      height: $header-height + 10px + 10px;
+      margin-top: -10px;
+      margin-bottom: -10px; // Reveal the clipped bottom edge of logo when mobile menu is open
+      margin-left: -25px; // Line up the "O" with the edge of .container
+      text-indent: -9000px;
+      background: transparent url(../logo-white.png) 0 45% no-repeat;
+      // IE8 doesn't understand multiple background images, so ignores this line:
+      background-image: url(../logo-white.svg), none;
+    }
+  }
+}
+
+#menu {
+  // Position toggle to top right of header, rather than below the h1
+  .toggle {
+    position: absolute;
+    top: 10px;
+    margin-top: 0;
+    right: 20px;
+  }
+
+  li {
+    width: 33.3%; // Down from 49%, to fit all 3 links on one line
+  }
+
+  a {
+    padding-bottom: 1em;
+  }
+
+  @include at-breakpoint(30em) {
+    // Let menu float to top right of header, rather than extending
+    // 100% width below the h1
+    width: auto;
+
+    a {
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: $header-height;
+    }
+
+    li {
+      width: auto;
+    }
+
+    li:last-child {
+      margin-right: 0;
+
+      a {
+        padding-right: 0; // Make link line up with right edge of container
+      }
+    }
+  }
+
+  ul li.selected a,
+  a:hover,
+  a:focus {
+    background: transparent;
+    color: inherit;
+  }
+}

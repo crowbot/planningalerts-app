@@ -1,0 +1,74 @@
+- content_for :page_title, page_title(@application)
+- content_for :meta_description, @application.description
+- content_for :extra_body_classes, "show-application"
+- unless defined?(Configuration::THEME_SOUTHWARK_DISABLE_SOCIAL_SHARING)
+  - content_for :extra_meta_tags do
+    %meta(name="twitter:card" content="summary")
+    %meta(name="twitter:site" content="@PlanningAlerts")
+    %meta(name="twitter:title" content="#{@application.address}")
+    %meta(name="twitter:description" content="#{@application.description[0..199] if @application.description}")
+    %meta(name="twitter:image" content="#{google_static_streetview_url(@application, :size => "120x120")}")
+
+  = render "applications/facebook"
+  = render "applications/twitter"
+
+= content_for :extra_javascript, javascript_include_tag("southwark.maps")
+
+- if @application.location
+  #map_div
+    %noscript= google_static_map(@application, :size => "640x100", :scale => 2)
+
+#application.container
+  #application-primary
+    %header
+      %span{:class => "status #{@application.status}"}= @application.status_display or 'Unknown status'
+      %p.reference= @application.council_reference
+      %h2.address= @application.address
+
+    %div.description
+      %p= @application.description
+      %p
+        = link_to @application.info_url, :target => "_blank" do
+          See this application on #{@application.authority.full_name}’s website
+
+  #application-secondary
+    - if @application.location
+      #pano
+        %noscript= google_static_streetview(@application, :size => "350x250")
+
+    %dl
+      - if @application.date_received
+        %dt.received Marked valid:
+        %dd.received= @application.date_received.strftime('%e %b %Y')
+      %dt.reference Application ID:
+      %dd.reference= @application.council_reference
+      %dt.status Status:
+      %dd.status= @application.status_display or 'Unknown'
+      - if @application.decision_date
+        %dt.decision Decision date:
+        %dd.decision= @application.decision_date.strftime('%e %b %Y')
+
+    - if @return_to_search_url
+      = link_to @return_to_search_url do
+        Back to your search
+
+  %br.clear
+
+- if @application.location
+  = content_for :extra_javascript, javascript_include_tag("southwark.map_styles")
+  :javascript
+    $(document).ready(function(){
+      $('#map_div').css('height', '250px');
+      initialiseMaps(
+        #{@application.lat},
+        #{@application.lng},
+        "#{escape_javascript(@application.address)}",
+        "#{@application.status}",
+        {
+          styles: window.PlanningAlerts.mapStyles
+        }
+      );
+    });
+
+= javascript_include_tag "maps"
+= javascript_include_tag "applications"

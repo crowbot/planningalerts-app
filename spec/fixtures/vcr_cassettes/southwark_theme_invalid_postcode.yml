@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.google.com/maps/api/geocode/json?address=SO234B&bounds=51.4206,-0.1115%7C51.5098,-0.0294&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD1VVEYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        U2F0LCAzMCBKdWwgMjAxNiAxNjo0ODowOCBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        U3VuLCAzMSBKdWwgMjAxNiAxNjo0ODowOCBHTVQ=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHVibGljLCBtYXgtYWdlPTg2NDAw
+      !binary "VmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUxhbmd1YWdl
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "U2VydmVy":
+      - !binary |-
+        bWFmZQ==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        NjU=
+      !binary "WC1Yc3MtUHJvdGVjdGlvbg==":
+      - !binary |-
+        MTsgbW9kZT1ibG9jaw==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAC/6vmUlBQUCpKLS7NKSlWUrBSiI7VAQsVlySWlIJFlKJcg/zj
+        g1yDQ31CgpW4arkAa0n/jzQAAAA=
+    http_version: 
+  recorded_at: Sat, 30 Jul 2016 16:48:08 GMT
+- request:
+    method: get
+    uri: http://maps.google.com/maps/api/geocode/json?address=SO234B&bounds=51.4206,-0.1115%7C51.5098,-0.0294&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD1VVEYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        U2F0LCAzMCBKdWwgMjAxNiAxNjo0ODowOSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        U3VuLCAzMSBKdWwgMjAxNiAxNjo0ODowOSBHTVQ=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHVibGljLCBtYXgtYWdlPTg2NDAw
+      !binary "VmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUxhbmd1YWdl
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "U2VydmVy":
+      - !binary |-
+        bWFmZQ==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        NjU=
+      !binary "WC1Yc3MtUHJvdGVjdGlvbg==":
+      - !binary |-
+        MTsgbW9kZT1ibG9jaw==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAC/6vmUlBQUCpKLS7NKSlWUrBSiI7VAQsVlySWlIJFlKJcg/zj
+        g1yDQ31CgpW4arkAa0n/jzQAAAA=
+    http_version: 
+  recorded_at: Sat, 30 Jul 2016 16:48:09 GMT
+- request:
+    method: get
+    uri: http://maps.google.com/maps/api/geocode/json?address=SO234B&bounds=51.4206,-0.1115%7C51.5098,-0.0294&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD1VVEYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        U2F0LCAzMCBKdWwgMjAxNiAxNjo0ODowOSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        U3VuLCAzMSBKdWwgMjAxNiAxNjo0ODowOSBHTVQ=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHVibGljLCBtYXgtYWdlPTg2NDAw
+      !binary "VmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUxhbmd1YWdl
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "U2VydmVy":
+      - !binary |-
+        bWFmZQ==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        NjU=
+      !binary "WC1Yc3MtUHJvdGVjdGlvbg==":
+      - !binary |-
+        MTsgbW9kZT1ibG9jaw==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAC/6vmUlBQUCpKLS7NKSlWUrBSiI7VAQsVlySWlIJFlKJcg/zj
+        g1yDQ31CgpW4arkAa0n/jzQAAAA=
+    http_version: 
+  recorded_at: Sat, 30 Jul 2016 16:48:09 GMT
+recorded_with: VCR 2.5.0
