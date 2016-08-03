@@ -22,7 +22,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s stable
 source .bash_profile
 
-rvm install 1.9.3-p547
+rvm install 2.0.0-p648
 
 cd /vagrant
+gem install bundler
 bundle install
