@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alexandru/stuff-classifier.git
-  revision: 548e800da3eaa97562b097b4fb8db3bab6de7ba1
+  revision: e08b13df6a5c715dc38e23f30ec0ed8e39deeb62
   specs:
     stuff-classifier (0.5)
       redis
