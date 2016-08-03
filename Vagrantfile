@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Enable NFS access to the disk
-  config.vm.synced_folder "", "/vagrant", :nfs => true
+  config.vm.synced_folder ".", "/vagrant"
 
   # NFS requires a host-only network
   config.vm.network :private_network, ip: "10.11.12.13"
