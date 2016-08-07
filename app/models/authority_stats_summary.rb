@@ -8,6 +8,13 @@ class AuthorityStatsSummary < ActiveRecord::Base
       :percentage_approved => overview.percentage_approved,
       :percentage_refused => overview.percentage_refused,
       :percentage_pending => overview.percentage_pending
+      :percentage_appeal_decided => overview.percentage_appeal_decided,
+      :percentage_appeal_received => overview.percentage_appeal_received,
+      :percentage_application_decided => overview.percentage_application_decided,
+      :percentage_application_withdrawn => overview.percentage_application_withdrawn,
+      :percentage_pending_decision => overview.percentage_pending_decision,
+      :percentage_pending_delegated_decision => overview.percentage_pending_delegated_decision,
+      :percentage_registered_as_valid => overview.percentage_registered_as_valid
     }
   end
 
