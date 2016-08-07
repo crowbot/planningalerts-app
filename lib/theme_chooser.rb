@@ -38,6 +38,10 @@ class DefaultTheme < Theme
     Configuration::GOOGLE_MAPS_CLIENT_ID if defined?(Configuration::GOOGLE_MAPS_CLIENT_ID)
   end
 
+  def google_maps_key
+    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_CLIENT_ID)
+  end
+
 # TODO Put this in the config
   def default_meta_description
     "A free service which searches Australian planning authority websites and emails you details of applications near you"
@@ -81,6 +85,10 @@ class NSWTheme < Theme
 
   def google_maps_client_id
     nil
+  end
+
+  def google_maps_key
+    Configuration::THEME_NSW_GOOGLE_MAPS_KEY
   end
 
   # TODO Put this in the config
@@ -140,6 +148,10 @@ class HampshireTheme < Theme
     nil
   end
 
+  def google_maps_key
+    Configuration::THEME_HAMPSHIRE_GOOGLE_MAPS_KEY
+  end
+
   # TODO Put this in the config
   def default_meta_description
     "Browse and explore planning applications in Hampshire."
@@ -195,6 +207,10 @@ class SouthwarkTheme < Theme
 
   def google_maps_client_id
     nil
+  end
+
+  def google_maps_key
+    Configuration::THEME_SOUTHWARK_GOOGLE_MAPS_KEY
   end
 
   # TODO Put this in the config
