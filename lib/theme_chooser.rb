@@ -39,7 +39,7 @@ class DefaultTheme < Theme
   end
 
   def google_maps_key
-    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_CLIENT_ID)
+    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_KEY)
   end
 
 # TODO Put this in the config
@@ -88,7 +88,7 @@ class NSWTheme < Theme
   end
 
   def google_maps_key
-    Configuration::THEME_NSW_GOOGLE_MAPS_KEY
+    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_KEY)
   end
 
   # TODO Put this in the config
@@ -149,7 +149,7 @@ class HampshireTheme < Theme
   end
 
   def google_maps_key
-    Configuration::THEME_HAMPSHIRE_GOOGLE_MAPS_KEY
+    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_KEY)
   end
 
   # TODO Put this in the config
@@ -210,7 +210,7 @@ class SouthwarkTheme < Theme
   end
 
   def google_maps_key
-    Configuration::THEME_SOUTHWARK_GOOGLE_MAPS_KEY
+    Configuration::GOOGLE_MAPS_KEY if defined?(Configuration::GOOGLE_MAPS_KEY)
   end
 
   # TODO Put this in the config
