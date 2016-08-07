@@ -6,7 +6,7 @@ namespace :southwark do
 
     # Wrap this in one big transaction to make it slightly faster
     # https://www.coffeepowered.net/2009/01/23/mass-inserting-data-in-rails-without-killing-your-performance/
-    app_statuses = Configuration::THEME_SOUTHWARK_CATEGORIES
+    app_statuses = Configuration::THEME_SOUTHWARK_STATUSES
     ActiveRecord::Base.transaction do
       Authority.enabled.each do |authority|
         attributes = {
