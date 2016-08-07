@@ -49,11 +49,6 @@ Rails.configuration.to_prepare do
         :message => "%{value} is not an allowed category"
       }
 
-    def geocode
-      # Override geocode with a noop because we don't need to geocode
-      # applications
-    end
-
     def status_display
       status ? status.capitalize : ''
     end
