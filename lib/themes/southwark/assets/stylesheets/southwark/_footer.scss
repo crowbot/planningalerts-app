@@ -21,9 +21,6 @@ body {
     height: 69px;
     margin: -10px 0 5px -25px;
     text-indent: -9000px;
-    background: transparent url(../logo-blue.png) 0 50% no-repeat;
-    // IE8 doesn't understand multiple background images, so ignores this line:
-    background-image: url(../logo-blue.svg), none;
   }
 
   p {
