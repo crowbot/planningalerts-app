@@ -85,7 +85,10 @@ Rails.configuration.to_prepare do
   Authority.class_eval do
     def applications_received_per_week
       # warning - assumes postgres!
-      h = applications.group("date_received - interval '1 day' * EXTRACT(DOW FROM date_received)").count
+      h = applications
+        .where("date_received IS NOT NULL")
+          .group("date_received - interval '1 day' * EXTRACT(DOW FROM date_received)")
+            .count
       h.sort
     end
 
