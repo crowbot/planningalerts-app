@@ -9,6 +9,4 @@
       %td.total_applications
         - if authority.stats.overview and authority.stats.overview.total
           = link_to pluralize(authority.stats.overview.total, 'application'), authority_url(authority.short_name_encoded)
-      %td.percent_approved
-        - if authority.stats.overview and authority.stats.overview.percentage_approved
-          = link_to "#{authority.stats.overview.percentage_approved}% approved", authority_url(authority.short_name_encoded)
+
