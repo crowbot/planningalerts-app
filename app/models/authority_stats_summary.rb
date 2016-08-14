@@ -5,9 +5,6 @@ class AuthorityStatsSummary < ActiveRecord::Base
 
   def self.overview_json
     {
-      :percentage_approved => overview.percentage_approved,
-      :percentage_refused => overview.percentage_refused,
-      :percentage_pending => overview.percentage_pending,
       :percentage_appeal_decided => overview.percentage_appeal_decided,
       :percentage_appeal_received => overview.percentage_appeal_received,
       :percentage_application_decided => overview.percentage_application_decided,

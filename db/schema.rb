@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141107151631) do
+ActiveRecord::Schema.define(:version => 20160814155202) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -131,8 +131,15 @@ ActiveRecord::Schema.define(:version => 20141107151631) do
     t.integer  "refused"
     t.integer  "pending"
     t.integer  "delayed"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "appeal_decided"
+    t.integer  "appeal_received"
+    t.integer  "application_decided"
+    t.integer  "application_withdrawn"
+    t.integer  "pending_decision"
+    t.integer  "pending_delegated_decision"
+    t.integer  "registered_as_valid"
   end
 
   create_table "comments", :force => true do |t|

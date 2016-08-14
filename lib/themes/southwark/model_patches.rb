@@ -97,6 +97,7 @@ Rails.configuration.to_prepare do
 
   Location.class_eval do
     def self.geocode(address)
+
       # Bias towards a specific bounding box
       boundsSW = GeoKit::LatLng.new(Configuration::THEME_SOUTHWARK_BOUNDING_BOX_SW[0],
                                     Configuration::THEME_SOUTHWARK_BOUNDING_BOX_SW[1])
