@@ -93,6 +93,7 @@ class Application < ActiveRecord::Base
           :info_url => a['info_url'],
           :comment_url => a['comment_url'],
           :date_received => a['date_received'],
+          :council_category => a['application_type']
           :date_scraped => Time.now,
           # on_notice_from and on_notice_to tags are optional
           :on_notice_from => a['on_notice_from'],
