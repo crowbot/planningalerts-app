@@ -58,4 +58,14 @@ namespace :southwark do
       end
     end
   end
+
+  desc 'Create description spreadsheet'
+  task :create_description_spreadsheet, [:filename] => :environment do |t,args|
+    File.open(args[:filename], 'w') do |file|
+      file.write("description,category\n")
+      Application.find_each do |application|
+        file.write("#{application.description},\n")
+      end
+    end
+  end
 end
