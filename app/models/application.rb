@@ -94,6 +94,8 @@ class Application < ActiveRecord::Base
           :comment_url => a['comment_url'],
           :date_received => a['date_received'],
           :council_category => a['application_type'],
+          :status => a['decision'],
+          :decision_date => a['decision_issued_date'],
           :date_scraped => Time.now,
           # on_notice_from and on_notice_to tags are optional
           :on_notice_from => a['on_notice_from'],
