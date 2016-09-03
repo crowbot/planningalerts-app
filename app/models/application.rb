@@ -94,6 +94,7 @@ class Application < ActiveRecord::Base
           :comment_url => a['comment_url'],
           :date_received => a['date_received'],
           :council_category => a['application_type'],
+          :category => a['application_type'],
           :status => a['decision'],
           :decision_date => a['decision_issued_date'],
           :date_scraped => Time.now,
