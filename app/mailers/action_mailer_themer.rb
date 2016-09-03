@@ -11,6 +11,9 @@ module ActionMailerThemer
     elsif theme == "nsw"
       template_path = ["../../lib/themes/#{theme}/views/#{mailer_name}", mailer_name]
       self.prepend_view_path "lib/themes/#{theme}/views"
+    elsif theme == "southwark"
+      template_path = ["../../lib/themes/#{theme}/views/#{mailer_name}", mailer_name]
+      self.prepend_view_path "lib/themes/#{theme}/views"
     else
       raise "Unknown theme #{theme}"
     end
