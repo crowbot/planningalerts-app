@@ -19,6 +19,8 @@ class SouthwarkTheme
                                       :search => params[:search],
                                       :status => params[:status],
                                       :page => params[:page])
+        @alert = Alert.new(:address => params[:location])
+
         if @search.valid?
           @show_results = true
           @map_display_possible = false
