@@ -48,17 +48,7 @@ PlanningalertsApp::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Send mails to the locally running instance of Cuttlefish
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-     :address => "localhost",
-     :port => 2525,
-     :user_name => Configuration::CUTTLEFISH_USER_NAME,
-     :password => Configuration::CUTTLEFISH_PASSWORD,
-     # The cuttlefish smtp server is currently using a self-signed certificate
-     :openssl_verify_mode => "none",
-     :authentication => :plain
-  }
+  config.action_mailer.delivery_method = :sendmail
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
