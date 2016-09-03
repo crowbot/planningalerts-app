@@ -30,10 +30,6 @@ Rails.application.routes.draw do
   match 'api', :to => 'static#error_404'
   match 'api/:catchall', :to => 'static#error_404'
 
-  match 'alerts', :to => 'static#error_404'
-  match 'alerts/:catchall', :to => 'static#error_404'
-  match 'alerts/:id/:verb', :to => 'static#error_404'
-
   match 'comments', :to => 'static#error_404'
   match 'comments/:catchall', :to => 'static#error_404'
   match 'comments/:id/:verb', :to => 'static#error_404'
