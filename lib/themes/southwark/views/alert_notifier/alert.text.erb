@@ -1,0 +1,17 @@
+<%= render "header" -%>
+<% unless @comments.empty? %>
+<%= render "comments" -%>
+<% unless @applications.empty? -%>
+
+============================================================
+
+<% end %>
+<% end %>
+<% unless @applications.empty? %>
+<%= render "applications" -%>
+<% end %>
+
+============================================================
+
+<%= render "footer_main" %>
+<%= render "footer_actions" %>

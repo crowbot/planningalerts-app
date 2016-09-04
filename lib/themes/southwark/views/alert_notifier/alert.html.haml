@@ -1,0 +1,12 @@
+!!!
+%html
+  %body{:style => "font-family:sans-serif;"}
+    = render "header"
+    - unless @comments.empty?
+      = render "comments"
+    - unless @applications.empty?
+      = render "applications"
+    %div{:style => "border-top: solid 3px #F2630C;"}
+      %div{:style => "padding-left: 15px; padding-top: 5px;"}
+        = render "footer_main"
+        = render "footer_actions"
