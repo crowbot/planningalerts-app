@@ -1,8 +1,6 @@
-#alert.container
-  = semantic_form_for @alert, :class => 'container' do |f|
-    = render "alerts/signup_introduction"
-    = f.inputs do
-      = f.input :address, :as => :hidden
-      = f.input :email, :label => "Enter your email address", :placeholder => "Enter your email address"
-    = f.actions do
-      = f.action :submit, :label => "Create Alert", :button_html => { :class => "button button-rounded button-action button-large" }
+= semantic_form_for @alert, :html => {:class => 'container'} do |f|
+  = render "alerts/signup_introduction"
+  = f.inputs do
+    = f.input :address, :as => :hidden
+    = f.input :email, :label => "Enter your email address", :placeholder => "Enter your email address"
+    = f.action :submit, :label => "Create Alert", :button_html => { :class => "button button-rounded button-action button-large" }

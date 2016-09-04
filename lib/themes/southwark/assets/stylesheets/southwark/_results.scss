@@ -63,9 +63,40 @@ body.search-results {
     }
   }
 
+  form.alert  {
+    padding-top: 0;
+    margin-top: 0;
+    border-bottom: none;
+
+    p {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      display: block;
+    }
+
+    li {
+      float: left;
+      display: inline;
+    }
+
+    li.action {
+      width: 20%;
+      margin-left: 0.75em;
+    }
+
+    label {
+      width: inherit;
+      padding: 0.1em 0 0 0 ;
+      font-size: 1em;
+      font-weight: normal;
+    }
+
+  }
+
   form {
     padding-top: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 0;
     // Don't touch side padding, because .container will sort that out for us
 
     p.submit {
@@ -102,7 +133,7 @@ body.search-results {
     }
   }
 
-  #status, #search, #location, #full_name {
+  #status, #search, #location, #full_name, #alert_email {
     display: inline-block;
     vertical-align: top;
     padding: 0.4em 0.6em;
@@ -134,6 +165,10 @@ body.search-results {
       margin-left: 0.7em;
     }
   }
+  #alert_email {
+    width: 14em;
+  }
+
 
   #full_name,
   #s2id_full_name {
