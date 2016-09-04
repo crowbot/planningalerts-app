@@ -89,7 +89,7 @@ class Application < ActiveRecord::Base
         {
           :council_reference => a['council_reference'],
           :address => a['address'],
-          :description => a['description'],
+          :description => a['description'] || "[No description]",
           :info_url => a['info_url'],
           :comment_url => a['comment_url'],
           :date_received => a['date_received'],
