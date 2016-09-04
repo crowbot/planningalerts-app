@@ -27,7 +27,8 @@ set :deploy_to, '/srv/www/planningalerts'
 append :linked_files, 'config/database.yml',
                       'config/general.yml',
                       'config/test.yml',
-                      'config/production.sphinx.conf'
+                      'config/production.sphinx.conf',
+                      'config/aliases'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
