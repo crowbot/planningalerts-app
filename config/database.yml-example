@@ -20,7 +20,7 @@ development:
   reconnect: false
   database: pa_development
   pool: 5
-  username: planningalerts
+  username: postgres
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -32,5 +32,5 @@ test: &TEST
   reconnect: false
   database: pa_test
   pool: 5
-  username: root
+  username: postgres
   password:
