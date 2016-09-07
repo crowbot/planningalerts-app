@@ -78,11 +78,19 @@ body.search-results {
     li {
       float: left;
       display: inline;
+      @media screen and (max-width: 59.99em) {
+        display: block;
+        float: none;
+      }
     }
 
     li.action {
       width: 20%;
       margin-left: 0.75em;
+      @media screen and (max-width: 59.99em) {
+        margin-left: 0;
+        width: 100%;
+      }
     }
 
     label {
@@ -90,6 +98,9 @@ body.search-results {
       padding: 0.1em 0 0 0 ;
       font-size: 1em;
       font-weight: normal;
+      @media screen and (max-width: 59.99em) {
+        text-align: left;
+      }
     }
 
   }
