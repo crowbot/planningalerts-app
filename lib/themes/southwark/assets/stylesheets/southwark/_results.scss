@@ -73,6 +73,9 @@ body.search-results {
       font-weight: bold;
       margin-bottom: 1em;
       display: block;
+      @media screen and (max-width: 59.99em) {
+        margin-bottom: 0;
+      }
     }
 
     li {
