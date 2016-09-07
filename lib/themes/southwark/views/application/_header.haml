@@ -8,8 +8,6 @@
       %ul.collapse.hidden
         = li_selected(:controller => "/applications", :action => ["address", "search"]) do
           = link_to 'Search', root_path
-        = li_selected(:controller => "/authorities", :action => "index") do
-          = link_to 'Authorities', authorities_path
         = li_selected(:controller => "/static", :action => "about") do
           = link_to 'About', about_path
 

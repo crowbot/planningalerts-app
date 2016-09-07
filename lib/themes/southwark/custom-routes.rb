@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   match 'applications', :to => 'static#error_404'
 
   match 'authorities/:id/applications', :to => 'static#error_404'
+  match 'authorities/:authority_id/applications/per_day(.:format)', :to => 'static#error_404'
+  match 'authorities/:authority_id/applications/per_week(.:format)', :to => 'static#error_404'
+  match 'authorities/:authority_id/applications(.:format)', :to => 'static#error_404'
+  match 'authorities/test_feed(.:format)', :to => 'static#error_404'
+  match 'authorities(.:format)', :to => 'static#error_404'
+  match 'authorities/:id(.:format)', :to => 'static#error_404'
 
   match 'faq', :to => 'static#error_404'
   match 'getinvolved', :to => 'static#error_404'
