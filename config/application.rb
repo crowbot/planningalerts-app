@@ -87,9 +87,9 @@ module PlanningalertsApp
     # These are things that are nice to have as configurations but unlikely really
     # in practise to change much
 
-    config.planningalerts_small_zone_size = 200
-    config.planningalerts_medium_zone_size = 800
-    config.planningalerts_large_zone_size = 2000
+    config.planningalerts_small_zone_size = 100
+    config.planningalerts_medium_zone_size = 400
+    config.planningalerts_large_zone_size = 600
 
     # Values used in the API examples
     config.planningalerts_api_example_address = "24 Bruce Road Glenbrook, NSW 2773"
