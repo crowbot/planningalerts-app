@@ -1,0 +1,13 @@
+- content_for :page_title, "Now check your email"
+
+.attention
+  %h3= yield :page_title
+  %p
+    ="Shortly you should receive an email from #{Configuration::THEME_SOUTHWARK_EMAIL_FROM_NAME}".
+    %span.highlight Click on the link in the email
+    to confirm and start receiving planning alerts.
+  %p If you don't get an email in the next few minutes, try checking your spam filter.
+
+%p
+  Return to
+  = link_to "applications near #{@address}", root_path(q: @address)
