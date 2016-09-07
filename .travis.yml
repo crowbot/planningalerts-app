@@ -3,6 +3,10 @@ rvm:
   - 1.9.3
   - 2.0.0
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libproj-dev
+
 before_script:
   - cp config/database.yml.example config/database.yml
   - bundle exec rake db:setup
