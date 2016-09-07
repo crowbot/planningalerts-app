@@ -23,7 +23,7 @@ feature "Manage alerts" do
 
     page.should have_content("your alert has been activated")
     page.should have_content("24 Bruce Road, Glenbrook NSW 2773")
-    Alert.active.find(:first, :conditions => {:address => "24 Bruce Road, Glenbrook NSW 2773", :radius_meters => "2000", :email => current_email_address}).should_not be_nil
+    Alert.active.find(:first, :conditions => {:address => "24 Bruce Road, Glenbrook NSW 2773", :radius_meters => "600", :email => current_email_address}).should_not be_nil
   end
 
   scenario "Unsubscribe from an email alert" do
@@ -40,15 +40,15 @@ feature "Manage alerts" do
 
   scenario "Change size of email alert" do
     alert = Alert.create!(:address => "24 Bruce Rd, Glenbrook", :email => "example@example.com",
-      :radius_meters => "2000", :lat => 1.0, :lng => 1.0, :confirmed => true)
+      :radius_meters => "600", :lat => 1.0, :lng => 1.0, :confirmed => true)
     visit area_alert_url(:id => alert.confirm_id, :host => 'dev.planningalerts.org.au')
 
     page.should have_content("What size area near 24 Bruce Rd, Glenbrook would you like to receive alerts for?")
-    find_field("My suburb (within 2 km)")['checked'].should be_true
-    choose("My neighbourhood (within 800 m)")
+    find_field("My suburb (within 600 m)")['checked'].should be_true
+    choose("My neighbourhood (within 400 m)")
     click_button("Update size")
 
     page.should have_content("your alert size area has been updated")
-    Alert.active.find(:first, :conditions => {:address => "24 Bruce Rd, Glenbrook", :radius_meters => "800", :email => "example@example.com"}).should_not be_nil
+    Alert.active.find(:first, :conditions => {:address => "24 Bruce Rd, Glenbrook", :radius_meters => "400", :email => "example@example.com"}).should_not be_nil
   end
 end

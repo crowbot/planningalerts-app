@@ -198,26 +198,34 @@ describe Application do
       Application.translate_morph_feed_data(feed_data).should ==
       [
         {
-          :date_scraped => t,
-          :description => "Construction of Dwelling",
-          :info_url => "http://www.yarracity.vic.gov.au/Planning-Application-Search/Results.aspx?ApplicationNumber=PL01/0776.01&Suburb=(All)&Street=(All)&Status=(All)&Ward=(All)",
-          :on_notice_from => "2012-05-01",
-          :on_notice_to => "2012-06-01",
-          :date_received => "2012-07-06",
           :council_reference => "PL01/0776.01",
           :address => "56 Murphy St Richmond VIC 3121",
-          :comment_url => "http://www.yarracity.vic.gov.au/planning--building/Planning-applications/Objecting-to-a-planning-applicationVCAT/"
+          :description => "Construction of Dwelling",
+          :info_url => "http://www.yarracity.vic.gov.au/Planning-Application-Search/Results.aspx?ApplicationNumber=PL01/0776.01&Suburb=(All)&Street=(All)&Status=(All)&Ward=(All)",
+          :comment_url => "http://www.yarracity.vic.gov.au/planning--building/Planning-applications/Objecting-to-a-planning-applicationVCAT/",
+          :date_received => "2012-07-06",
+          :council_category => nil,
+          :category => nil,
+          :status => nil,
+          :decision_date => nil,
+          :date_scraped => t,
+          :on_notice_from => "2012-05-01",
+          :on_notice_to => "2012-06-01"
         },
         {
-          :date_scraped => t,
-          :description => "Liquor Licence for Existing Caf\u00e9",
-          :info_url => "http://www.yarracity.vic.gov.au/Planning-Application-Search/Results.aspx?ApplicationNumber=PL02/0313.01&Suburb=(All)&Street=(All)&Status=(All)&Ward=(All)",
-          :on_notice_from => nil,
-          :on_notice_to => nil,
-          :date_received => "2012-07-30",
           :council_reference => "PL02/0313.01",
           :address => "359-361 Napier St Fitzroy VIC 3065",
-          :comment_url => "http://www.yarracity.vic.gov.au/planning--building/Planning-applications/Objecting-to-a-planning-applicationVCAT/"
+          :description => "Liquor Licence for Existing Café",
+          :info_url => "http://www.yarracity.vic.gov.au/Planning-Application-Search/Results.aspx?ApplicationNumber=PL02/0313.01&Suburb=(All)&Street=(All)&Status=(All)&Ward=(All)",
+          :comment_url => "http://www.yarracity.vic.gov.au/planning--building/Planning-applications/Objecting-to-a-planning-applicationVCAT/",
+          :date_received => "2012-07-30",
+          :council_category => nil,
+          :category => nil,
+          :status => nil,
+          :decision_date => nil,
+          :date_scraped => t,
+          :on_notice_from => nil,
+          :on_notice_to => nil
         }
       ]
     end
