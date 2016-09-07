@@ -3,4 +3,4 @@
   = f.inputs do
     = f.input :address, :as => :hidden
     = f.input :email, :label => "Enter your email address", :placeholder => "Enter your email address"
-    = f.action :submit, :label => "Create Alert", :button_html => { :class => "button button-rounded button-action button-large" }
+    = f.action :submit, :as => :button, :label => "Create Alert", :button_html => { :class => "button button-rounded button-action button-large" }
