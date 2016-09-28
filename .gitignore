@@ -25,7 +25,7 @@ public/assets
 webrat.log
 .DS_Store
 planningalerts-app.sublime-workspace
-
+planningalerts-app.sublime-project
 # mySoc deployment system
 config/database.yml.deployed
 config/general.yml.deployed
