@@ -22,6 +22,7 @@ gem "jquery-ui-rails"
 gem "capistrano"
 gem "capistrano-rails"
 gem "capistrano-bundler"
+gem 'capistrano3-delayed-job'
 gem "capistrano-rbenv"
 gem "foreman"
 gem "haml"
