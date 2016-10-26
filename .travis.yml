@@ -4,7 +4,7 @@ rvm:
 
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libproj-dev=4.7.0-1
+  - sudo apt-get install -y libproj-dev=4.7.0-1 libproj0=4.7.0-1
   - dpkg -S projects.h
 
 before_script:
