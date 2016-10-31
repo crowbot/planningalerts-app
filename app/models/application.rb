@@ -5,8 +5,7 @@ class Application < ActiveRecord::Base
   has_many :comments
   before_save :geocode
   geocoded_by :address, :latitude  => :lat, :longitude => :lng
-
-  validates :date_scraped, :council_reference, :address, :description, :presence => true
+  validates :date_scraped, :council_reference, :address, :presence => true
   validates :info_url, :url => true
   validates :comment_url, :url => {:allow_blank => true, :schemes => ["http", "https", "mailto"]}
   validate :date_received_can_not_be_in_the_future, :validate_on_notice_period
