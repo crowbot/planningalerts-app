@@ -17,7 +17,11 @@ class ThemeChooser
   end
 
   def self.choose_theme(request)
-    themes.find{|t| t.recognise?(request)}
+    if ENV["THEME"]
+      create(ENV["THEME"])
+    else
+      themes.find{|t| t.recognise?(request)}
+    end
   end
 
 end
