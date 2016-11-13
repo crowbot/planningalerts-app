@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_view_path
-    @themer = ThemeChooser.themer_from_request(request)
+    @themer = ThemeChooser.choose_theme(request)
     @theme = @themer.theme
 
     if @themer.view_path
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   def ssl_required?
     # This method is called before set_view_path so we need to calculate the theme from the
     # request rather than using @theme which isn't yet set
-    ::ThemeChooser.themer_from_request(request).ssl_required? && !Rails.env.development?
+    ::ThemeChooser.choose_theme(request).ssl_required? && !Rails.env.development?
   end
 
   def configure_permitted_parameters

@@ -16,7 +16,7 @@ class ThemeChooser
     r
   end
 
-  def self.themer_from_request(request)
+  def self.choose_theme(request)
     themes.find{|t| t.recognise?(request)}
   end
 
