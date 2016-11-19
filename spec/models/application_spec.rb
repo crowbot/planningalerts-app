@@ -35,10 +35,6 @@ describe Application do
       it { Factory.build(:application, :address => "").should_not be_valid }
     end
 
-    describe "description" do
-      it { Factory.build(:application, :description => "").should_not be_valid }
-    end
-
     describe "info_url" do
       it { Factory.build(:application, :info_url => "").should_not be_valid }
       it { Factory.build(:application, :info_url => "http://blah.com?p=1").should be_valid }
