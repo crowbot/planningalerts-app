@@ -1,0 +1,23 @@
+#header-wrapper
+  #header.container
+    %h1= link_to @themer.app_name, root_path
+    %h2
+      Email alerts of planning applications
+      %em near you
+
+    .hide= link_to "Skip navigation", "#content"
+    #menu
+      = image_tag "menu.png", size: "30x30", class: "toggle"
+      %ul.collapse.hidden
+        = li_selected(:controller => "/applications", :action => "address") do
+          = link_to 'Search', address_applications_path
+        = li_selected(:controller => "/alerts", :action => ["new", "create"]) do
+          = link_to 'Sign Up', new_alert_path
+        = li_selected(:controller => "/api", :action => "howto") do
+          = link_to api_howto_path do
+            Get the Data
+        = li_selected(:controller => "/static", :action => "about") do
+          = link_to 'About', about_path
+        - if current_user && current_user.admin?
+          %li
+            = link_to "Admin", admin_root_path
